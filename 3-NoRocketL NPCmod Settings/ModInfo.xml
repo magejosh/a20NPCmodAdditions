@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xml>
+  <ModInfo>
+    <Name value="No RocketL NPCmod Settings" />
+    <Description value="NPCmod Setting Modlet to remove Rocket Launcher NPCs from spawning" />
+    <Author value="magejosh" />
+    <Version value="20.5" />
+    <Website value="https://community.7daystodie.com/topic/26974-npcmod-a-community-project/" />
+  </ModInfo>
+</xml>
