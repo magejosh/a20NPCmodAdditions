@@ -1,0 +1,94 @@
+<mj>
+
+
+
+	<append xpath="/entity_classes">
+
+		<entity_class name="animalSpider01Big" extends="animalSpider01">
+			<property name="Tags" value="entity,animal,hostile,animalSpider03,perkAT02,perkAT03"/>
+			<property name="Faction" value="aggressiveanimals"/>
+			<property name="SizeScale" value="2" />
+			<effect_group name="Base Effects"> 
+				<passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+				<passive_effect name="HealthMax" operation="perc_set" value="2"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_set" value="30" />
+				<passive_effect name="BuffResistance" operation="base_set" value="5" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffInjuryBleeding,buffInjuryBleedingZombie,buffInfectionCatch"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffLegSprained,buffLegBroken,buffArmSprained,buffPlayerFallingDamage"/>
+			</effect_group>	
+		</entity_class>
+
+		<entity_class name="animalSpider02Big" extends="animalSpider02">
+			<property name="Tags" value="entity,animal,hostile,animalSpider03,perkAT02,perkAT03"/>
+			<property name="Faction" value="aggressiveanimals"/>
+			<property name="SizeScale" value="3" />
+			<effect_group name="Base Effects"> 
+				<passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+				<passive_effect name="HealthMax" operation="perc_set" value="2.5"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_set" value="30" />
+				<passive_effect name="BuffResistance" operation="base_set" value="5" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffInjuryBleeding,buffInjuryBleedingZombie,buffInfectionCatch"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffLegSprained,buffLegBroken,buffArmSprained,buffPlayerFallingDamage"/>
+			</effect_group>	
+		</entity_class>
+
+		<entity_class name="animalSpider03Big" extends="animalSpider03">
+			<property name="Tags" value="entity,animal,hostile,animalSpider03,perkAT02,perkAT03"/>
+			<property name="Faction" value="aggressiveanimals"/>
+			<property name="SizeScale" value="4" />
+			<effect_group name="Base Effects"> 
+				<passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+				<passive_effect name="HealthMax" operation="perc_set" value="3"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_set" value="30" />
+				<passive_effect name="BuffResistance" operation="base_set" value="5" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffInjuryBleeding,buffInjuryBleedingZombie,buffInfectionCatch"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffLegSprained,buffLegBroken,buffArmSprained,buffPlayerFallingDamage"/>
+			</effect_group>	
+		</entity_class>
+
+		<entity_class name="animalSpider01Huge" extends="animalSpider01">
+			<property name="Tags" value="entity,animal,hostile,animalSpider03,perkAT02,perkAT03"/>
+			<property name="Faction" value="aggressiveanimals"/>
+			<property name="SizeScale" value="5" />
+			<effect_group name="Base Effects"> 
+				<passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+				<passive_effect name="HealthMax" operation="perc_set" value="3.5"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_set" value="50" />
+				<passive_effect name="BuffResistance" operation="base_set" value="5" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffInjuryBleeding,buffInjuryBleedingZombie,buffInfectionCatch"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffLegSprained,buffLegBroken,buffArmSprained,buffPlayerFallingDamage"/>
+			</effect_group>	
+		</entity_class>
+
+		<entity_class name="animalSpider02Huge" extends="animalSpider02">
+			<property name="Tags" value="entity,animal,hostile,animalSpider03,perkAT02,perkAT03"/>
+			<property name="Faction" value="aggressiveanimals"/>
+			<property name="SizeScale" value="6" />
+			<effect_group name="Base Effects"> 
+				<passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+				<passive_effect name="HealthMax" operation="perc_set" value="4"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_set" value="50" />
+				<passive_effect name="BuffResistance" operation="base_set" value="5" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffInjuryBleeding,buffInjuryBleedingZombie,buffInfectionCatch"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffLegSprained,buffLegBroken,buffArmSprained,buffPlayerFallingDamage"/>
+			</effect_group>	
+		</entity_class>
+
+		<entity_class name="animalSpider03Huge" extends="animalSpider03">
+			<property name="Tags" value="entity,animal,hostile,animalSpider03,perkAT02,perkAT03"/>
+			<property name="Faction" value="aggressiveanimals"/>
+			<property name="SizeScale" value="7" />
+			<effect_group name="Base Effects"> 
+				<passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+				<passive_effect name="HealthMax" operation="perc_set" value="4.2"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_set" value="50" />
+				<passive_effect name="BuffResistance" operation="base_set" value="5" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffInjuryBleeding,buffInjuryBleedingZombie,buffInfectionCatch"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffLegSprained,buffLegBroken,buffArmSprained,buffPlayerFallingDamage"/>
+			</effect_group>	
+		</entity_class>
+
+
+	</append>
+
+</mj>

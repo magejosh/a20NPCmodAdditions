@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xml>
+  <ModInfo>
+    <Name value="NPCmod Link Button" />
+    <Description value="Adds a NPCmod link button to the escape menu and main menu." />
+    <Author value="magejosh" />
+    <Version value="20.5" />
+    <Website value="https://community.7daystodie.com/topic/26974-npcmod-a-community-project/" />
+  </ModInfo>
+</xml>

@@ -1,0 +1,66 @@
+<mj>
+ <remove xpath="/worldgeneration/biomes/biome[@name='snow']/decorations/decoration[@blockname='treeSnowyGrassDiagonal']"/>
+ <append xpath="/worldgeneration/biomes/biome[@name='snow']/decorations">
+				<decoration type="block" blockname="treeAzalea" prob="0.00081"/>
+				<decoration type="block" blockname="plantedPotato3Harvest" prob="0.0001181"/>
+				<decoration type="block" blockname="plantedCoffee3Harvest" prob="0.00481"/>
+				<decoration type="block" blockname="plantedBlueberry3Harvest" prob="0.00281"/>
+				<decoration type="block" blockname="plantedGraceCorn3Harvest" prob="0.00381"/>
+				<decoration type="block" blockname="plantedPumpkin3Harvest" prob="0.00381"/>
+				<decoration type="block" blockname="trapSpikesWoodDmg0SpawnerAlt" prob="0.001711" offset="-1"/>
+				<decoration type="block" blockname="trapSpikesWoodDmg0Spawner" prob="0.001711" offset="-1"/>
+				<!-- <decoration type="block" blockname="mineCandyTin" prob="0.00011" /> -->
+				<!-- <decoration type="block" blockname="mineHubcap" prob="0.000081" /> -->
+				<decoration type="block" blockname="treeSnowyGrassDiagonal" prob=".1" />
+
+ </append>
+ <remove xpath="/worldgeneration/biomes/biome[@name='pine_forest']/decorations/decoration[@blockname='treeTallGrassDiagonal']"/>
+ <remove xpath="/worldgeneration/biomes/biome[@name='pine_forest']/decorations/decoration[@blockname='treeShortGrass']"/>
+ <append xpath="/worldgeneration/biomes/biome[@name='pine_forest']/decorations">
+				<decoration type="block" blockname="treeAzalea" prob="0.00481"/>
+				<decoration type="block" blockname="plantedBlueberry3Harvest" prob="0.00381"/>
+				<decoration type="block" blockname="plantedHop3Harvest" prob="0.0001181"/>
+				<decoration type="block" blockname="plantedPotato3Harvest" prob="0.001181"/>
+				<decoration type="block" blockname="plantedPumpkin3Harvest" prob="0.0001181"/>
+				<decoration type="block" blockname="trapSpikesWoodDmg0Spawner" prob="0.0001181" offset="-1"/>
+				<!-- <decoration type="block" blockname="mineCandyTin" prob="0.0000175" /> -->
+				<!-- <decoration type="block" blockname="mineHubcap" prob="0.0000081" /> -->
+				<decoration type="block" blockname="treeTallGrassDiagonal" prob=".4" />
+				<decoration type="block" blockname="treeShortGrass" prob=".8" />
+
+ </append>
+ <remove xpath="/worldgeneration/biomes/biome[@name='desert']/decorations/decoration[@blockname='treeOakMed01']"/>
+ <remove xpath="/worldgeneration/biomes/biome[@name='desert']/decorations/decoration[@blockname='treeOakSml01']"/>
+ <append xpath="/worldgeneration/biomes/biome[@name='desert']/decorations">
+				<decoration type="block" blockname="plantedGraceCorn3Harvest" prob="0.00281"/>
+				<decoration type="block" blockname="plantedHop3Harvest" prob="0.0001181"/>
+				<decoration type="block" blockname="plantedPumpkin3Harvest" prob="0.0001181"/>
+				<decoration type="block" blockname="trapSpikesWoodDmg0SpawnerAlt" prob="0.001181" offset="-1"/>
+				<decoration type="block" blockname="trapSpikesWoodDmg0Spawner" prob="0.001181" offset="-1"/>
+				<!-- <decoration type="block" blockname="mineCandyTin" prob="0.00013" /> -->
+				<!-- <decoration type="block" blockname="mineHubcap" prob="0.000093" /> -->
+				<decoration type="block" blockname="treeOakMed01" prob="0.0003" rotatemax="7" />
+				<decoration type="block" blockname="treeOakSml01" prob="0.002" rotatemax="7" />
+
+ </append>
+ <append xpath="/worldgeneration/biomes/biome[@name='wasteland']/decorations">
+				<decoration type="block" blockname="plantedGraceCorn3Harvest" prob="0.00181"/>
+				<decoration type="block" blockname="plantedHop3Harvest" prob="0.0001181"/>
+				<decoration type="block" blockname="plantedPotato3Harvest" prob="0.0001181"/>
+				<!-- <decoration type="block" blockname="mineCandyTin" prob="0.00015" /> -->
+				<!-- <decoration type="block" blockname="mineHubcap" prob="0.0001" /> -->
+				<decoration type="block" blockname="trapSpikesWoodDmg0Spawner" prob="0.0042" offset="-1"/>
+				<decoration type="block" blockname="trapSpikesWoodDmg0SpawnerAlt" prob="0.0042" offset="-1"/>
+
+ </append>
+ <append xpath="/worldgeneration/biomes/biome[@name='burnt_forest']/decorations">
+				<decoration type="block" blockname="plantedGraceCorn3Harvest" prob="0.00381"/>
+				<decoration type="block" blockname="plantedPotato3Harvest" prob="0.0001181"/>
+				<decoration type="block" blockname="trapSpikesWoodDmg0Spawner" prob="0.001981" offset="-1"/>
+				<decoration type="block" blockname="trapSpikesWoodDmg0SpawnerAlt" prob="0.001981" offset="-1"/>
+				<!-- <decoration type="block" blockname="mineCandyTin" prob="0.00015" /> -->
+				<!-- <decoration type="block" blockname="mineHubcap" prob="0.0001" /> -->
+
+ </append>
+
+</mj>

@@ -1,0 +1,65 @@
+<configs>
+
+	<append xpath="/gameevents">
+
+
+		<action_sequence name="mj_small_spider_horde1"> <!-- GS 90, 180 pp, 10 CD, 1 feral, 3 normal -->
+
+			<action class="SpawnEntity">
+				<property name="entity_names" value="animalSpider01,animalSpider02,animalSpider03" />
+					<property name="spawn_count" value="2" />
+					<property name="attack_target" value="true"/>
+			</action>
+			
+			<action class="SpawnEntity">
+				<property name="entity_names" value="animalSpider01Big,animalSpider02Big,animalSpider03Big" />
+				<property name="spawn_count" value="1" />
+				<property name="attack_target" value="true"/>
+			</action>
+			
+			<action class="PlaySound">
+				<property name="sound" value="animalspiderattack" />
+				<property name="phase" value="1" />
+			</action>
+			
+			<action class="PlaySound">
+				<property name="sound" value="zombiemalealert" />
+				<property name="phase" value="1" />
+			</action>
+				
+		</action_sequence>
+
+		<action_sequence name="mj_small_spider_horde2"> <!-- GS 90, 180 pp, 10 CD, 1 feral, 3 normal -->
+
+			<action class="SpawnEntity">
+				<property name="entity_names" value="animalSpider01,animalSpider02,animalSpider03,animalSpider01Big" />
+					<property name="spawn_count" value="1" />
+					<property name="attack_target" value="true"/>
+			</action>
+			
+			<action class="SpawnEntity">
+				<property name="entity_names" value="animalSpider01Huge,animalSpider02Huge,animalSpider03Huge,animalSpider01Big,animalSpider02Big,animalSpider03Big" />
+				<property name="spawn_count" value="2" />
+				<property name="attack_target" value="true"/>
+			</action>
+			
+			<action class="PlaySound">
+				<property name="sound" value="animalspiderattack" />
+				<property name="phase" value="1" />
+			</action>
+			
+			<action class="PlaySound">
+				<property name="sound" value="zombiemalealert" />
+				<property name="phase" value="1" />
+			</action>
+				
+		</action_sequence>
+
+	
+	
+	</append>
+
+</configs>
+
+
+

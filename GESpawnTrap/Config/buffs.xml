@@ -1,0 +1,138 @@
+<mjedit>
+
+	<append xpath="/buffs">
+
+<!-- spawning buffs -->
+
+
+		<buff name="buffSpawnSpidersmjTrigger" name_key="Spiders Everywhere" description_key="You disturbed a spider's nest" tooltip_key="You should RUN" icon="npc_duke" hidden="false" remove_on_death="true" icon_color="181,0,237">
+			<stack_type value="replace"/>
+			<duration value="2"/>
+			<update_rate value="1"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffSpawnSpidersmj">
+					<!-- <requirement name="EntityHasMovementTag" tags="running" />		 -->
+					<!-- <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="Equals" value="0"/> -->
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="17"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffSpawnSpidersmjTriggerScale">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="11"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+
+		<buff name="buffSpawnSpidersmjTriggerScale" name_key="Spiders Everywhere" description_key="You disturbed a spider's nest" tooltip_key="You should RUN" icon="npc_duke" hidden="false" remove_on_death="true" icon_color="181,0,237">
+			<stack_type value="replace"/>
+			<duration value="2"/>
+			<update_rate value="1"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffSpawnSpidersmj">
+					<!-- <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="Equals" value="0"/> -->
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="33"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffSpawnSpidersmj2">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="23"/>
+					<!-- <requirement name="EntityHasMovementTag" tags="running" />		 -->
+				</triggered_effect>
+			</effect_group>
+		</buff>
+
+
+		<buff name="buffSpawnSpidersmj" name_key="Spiders Everywhere" description_key="You disturbed a spider's nest" tooltip_key="You should RUN" icon="ui_game_symbol_adventure" hidden="false" remove_on_death="true" icon_color="181,0,237">
+			<stack_type value="replace"/>
+			<duration value="2"/>
+			<update_rate value=".5"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="mj_small_spider_horde1">
+					<!-- <requirement name="!CVarCompare" cvar="_crouching" operation="Equals" value="1"></requirement> -->
+					<!-- <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="Equals" value="0"/> -->
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="49"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<!-- <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0"></requirement> -->
+				<!-- <requirement name="HasBuff" buff="buffInfectionMain"/> -->
+				<!-- <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="Equals" value="0"/> -->
+				<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="mj_small_spider_horde2">
+					<!-- <requirement name="EntityHasMovementTag" tags="running" />		 -->
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="22"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+
+		<buff name="buffSpawnSpidersmj2" name_key="Spiders Everywhere" description_key="You disturbed a spider's nest" tooltip_key="You should RUN" icon="ui_game_symbol_arrow_max" hidden="false" remove_on_death="true" icon_color="181,0,237">
+			<stack_type value="replace"/>
+			<duration value="2"/>
+			<update_rate value=".5"/>
+			<effect_group>
+				<!-- <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0"></requirement> -->
+				<!-- <requirement name="HasBuff" buff="buffInfectionMain"/> -->
+				<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="mj_small_spider_horde2">
+					<!-- <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="Equals" value="0"/> -->
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="22"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<!-- <requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="0"></requirement> -->
+				<!-- <requirement name="HasBuff" buff="buffInfectionMain"/> -->
+				<!-- <requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="Equals" value="0"/> -->
+				<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="mj_small_spider_horde1">
+					<!-- <requirement name="EntityHasMovementTag" tags="running" />		 -->
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="33"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+
+
+		<buff name="quicksandtrigger1" hidden="false">
+			<stack_type value="ignore"/>
+			<duration value="1"/>
+			<update_rate value=".1"/>
+			<effect_group>
+				<requirements>
+					<requirement name="NotHasBuff" buff="pegasus"/>
+					<requirement name="NotHasBuff" buff="god"/>
+					<requirement name="NotHasBuff" buff="buffMegaCrush"/>
+					<requirement name="NotHasBuff" buff="quicksand1"/>					
+				</requirements>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="quicksand1" target_tags="zombie,animal,player"/>
+			</effect_group>
+		</buff>
+
+		<buff name="quicksand1" name_key="Oh NO!" description_key="You have been caught in quicksand! Good Luck!" icon="trap2-icon">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<update_rate value="2"/>
+			<effect_group>
+				<requirements>
+					<requirement name="NotHasBuff" buff="pegasus"/>
+					<requirement name="NotHasBuff" buff="god"/>
+					<requirement name="NotHasBuff" buff="buffMegaCrush"/>
+					<requirement name="NotHasBuff" buff="quicksand1"/>					
+				</requirements>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="quicksand1"/>
+			</effect_group>
+
+			<effect_group>																								<!-- Changes below are only when you are on the trap block -->
+				<passive_effect name="JumpStrength" operation="base_set" value="0"/> <!-- Anytihing above zero will allow jumping while on trap, however will take fiddling if you adjust as "1" is not vanilla -->
+				<passive_effect name="WalkSpeed" operation="base_set" value=".0081"/> <!-- Changes the speed you walk with "1" being vanilla. Done as a percentage so .5 is 50% of vanilla and "2" is 200% -->
+				<passive_effect name="RunSpeed" operation="base_set" value=".025"/> <!-- Changes the speed you run with "1" being vanilla. Done as a percentage so .5 is 50% of vanilla and "2" is 200% -->
+
+				<triggered_effect trigger="onSelfBuffUpdate" action="Ragdoll" duration=".37">
+					<requirement name="!EntityTagCompare" tags="trader"/>
+					<requirement name="EntityHasMovementTag" tags="running"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="63"/>
+				</triggered_effect>
+
+
+			</effect_group>
+		</buff>
+
+
+
+	</append>
+</mjedit>

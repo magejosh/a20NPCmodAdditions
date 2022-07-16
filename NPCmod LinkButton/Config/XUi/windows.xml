@@ -1,0 +1,33 @@
+<configs>
+
+		<!-- ++= This modlet provides two options for appearance. If you want to change the placement, it can get tricky so if you can't figure it out message me on my discord *( https://discord.gg/dGqHv59AeH )* and i'll help the best i can. Make sure you comment out the whole window with the appearance you don't want. =++ -->
+
+<append xpath="/windows" >
+
+ <!-- +++== The following version has the black background which hides the link text. ==+++  -->
+
+	<window name="btnNPC" controller="ServerInfo" anchor="LeftBottom" pos="60,89">
+		<panel name="header" pos="0,0" height="66" depth="3" backgroundspritename="ui_game_panel_header" bordercolor="[black]" borderthickness="0" >
+			<texture name="ItemBackground" depth="2" size="500, 66" texture="@https://i.imgur.com/1Y0ghgW.jpg" material="Materials/Transparent Colored" pos="0,0" />
+			<label name="ServerDescription" />
+			<label depth="1" pos="0,-20" height="66" width="500" name="ServerWebsiteURL" text="https://community.7daystodie.com/topic/26974-npcmod-a-community-project/" justify="center" style="press, hover" font_size="40" upper_case="false" />
+		</panel>
+	</window>
+
+	<!-- +++== The following version has a transparent background which means it cannot hide the link text so it is moved to the bottom of the image. ==+++  -->
+
+	<!-- <window name="btnNPCMmenu" controller="ServerInfo" anchor="LeftBottom" pos="60,89">
+		<panel name="header" pos="0,0" height="66" depth="3" backgroundspritename="ui_game_panel_header" bordercolor="[black]" borderthickness="0" >
+			<texture name="ItemBackground" depth="2" size="500, 66" texture="@https://i.imgur.com/zH4eByl.png" material="Materials/Transparent Colored" pos="0,0" />
+			<label name="ServerDescription" />
+			<label depth="1" pos="0,-60" height="66" width="500" name="ServerWebsiteURL" text="https://community.7daystodie.com/topic/26974-npcmod-a-community-project/" justify="center" style="press, hover" font_size="40" upper_case="false" />
+		</panel>
+	</window> -->
+
+</append>
+
+
+<!-- <insertBefore xpath="//window[@name='ingameMenu']/grid[name='buttons']">
+	<simplebutton name="btnOptions" pos="9999,9999" depth="3" width="500" height="66" caption_key="xuiMenuOptions" font_size="40" />
+</insertBefore> -->
+</configs>

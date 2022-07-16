@@ -1,0 +1,148 @@
+<mjedit>
+
+
+	
+
+
+
+	<append xpath="/blocks/block[@name='cntBirdnest']">
+		<property name="BuffsWhenWalkedOn" value="buffSpawnSpidersmjTrigger"/>
+	</append>
+
+	<append xpath="/blocks/block[@name='stalagmite01']">
+		<property name="BuffsWhenWalkedOn" value="buffSpawnSpidersmjTrigger"/>
+	</append>
+
+	<append xpath="/blocks/block[@name='rock02']">
+		<property name="BuffsWhenWalkedOn" value="buffSpawnSpidersmjTrigger"/>
+	</append>
+
+	<append xpath="/blocks/block[@name='rock03']">
+		<property name="BuffsWhenWalkedOn" value="buffSpawnSpidersmjTrigger"/>
+	</append>
+
+		`	
+		
+	<append xpath="/blocks">
+
+	<!-- NOT_A_SHAPE -->
+	<block name="trapSpikesWoodMasterSpawner">
+		<property name="CustomIcon" value="terrainFiller"/><property name="CustomIconTint" value="fff203 "/>
+		<property name="CreativeMode" value="None"/>
+		<property name="Class" value="TrunkTip"/>
+		<property name="BlockTag" value="Spike"/>
+		<property name="Damage" value="17"/>
+		<property name="Damage_received" value="200"/>
+		<property name="Material" value="Mdirt"/>
+		<property name="MaxDamage" value="200"/>
+		<property name="Shape" value="Terrain"/>
+		<property name="Mesh" value="terrain"/>
+		<property name="IsTerrainDecoration" value="true"/>
+		<property name="ImposterExclude" value="true"/>
+		<property name="Collide" value="movement,melee"/>
+		<property name="LightOpacity" value="6"/>
+		<property name="Path" value="solid"/>
+		<property name="FuelValue" value="1000"/>
+		<!-- <property name="BuffsWhenWalkedOn" value="trapDamageZombie"/> -->
+		<property class="RepairItems">
+			<property name="resourceWood" value="10"/>
+		</property>
+		<property name="CustomUpgradeSound" value="place_block_wood"/>
+		<drop event="Destroy" name="resourceWood" count="2,6"/>
+		<drop event="Fall" count="0"/>
+		<property name="Group" value="Tools/Traps"/>
+		<property name="DescriptionKey" value="trapSpikesGroupDesc"/>
+		<property name="EconomicValue" value="30"/>
+		<property name="EconomicBundleSize" value="20"/>
+		<property name="FilterTags" value="MC_building,SC_traps"/>
+		<property name="SortOrder1" value="70g0"/>
+	</block>
+	<!-- Player made Stage 3 with blood -->
+	<!-- NOT_A_SHAPE -->
+	<block name="trapSpikesWoodDmg2Spawner">
+		<property name="Extends" value="trapSpikesWoodMasterSpawner"/>
+		<property name="CreativeMode" value="Dev"/>
+		<property name="Shape" value="ModelEntity"/>
+		<property name="Model" value="Entities/Traps/woodSpikesTrap2BloodPrefab"/>
+		<property name="Material" value="MtrapSpikesWood"/>
+		<property name="BuffsWhenWalkedOn" value="buffSpawnSpidersmjTrigger"/>
+		<property class="UpgradeBlock">
+			<property name="ToBlock" value="trapSpikesWoodDmg1Spawner"/>
+			<property name="Item" value="resourceWood"/>
+			<property name="ItemCount" value="10"/>
+			<property name="UpgradeHitCount" value="4"/>
+		<property name="DowngradeBlock" value="trapSpikesWoodDmg0Spawner"/>
+		</property>
+	</block>
+
+	<!-- Player made Stage 2 with blood -->
+	<!-- NOT_A_SHAPE -->
+	<block name="trapSpikesWoodDmg1Spawner">
+		<property name="Extends" value="trapSpikesWoodMasterSpawner"/>
+		<property name="CreativeMode" value="Dev"/>
+		<property name="Model" value="Entities/Traps/woodSpikesTrap1BloodPrefab"/>
+		<property name="Shape" value="ModelEntity"/>
+		<property name="Material" value="MtrapSpikesWood"/>
+		<property name="BuffsWhenWalkedOn" value="buffSpawnSpidersmjTrigger"/>
+		<property class="UpgradeBlock">
+			<property name="ToBlock" value="trapSpikesWoodDmg0Spawner"/>
+			<property name="Item" value="resourceWood"/>
+			<property name="ItemCount" value="5"/>
+			<property name="UpgradeHitCount" value="4"/>
+		</property>
+		<property name="DowngradeBlock" value="trapSpikesWoodDmg2Spawner"/>
+	</block>
+
+	<!-- Player made Stage 1 with no blood -->
+	<!-- NOT_A_SHAPE -->
+	<block name="trapSpikesWoodDmg0Spawner">
+		<property name="Extends" value="trapSpikesWoodMasterSpawner"/>
+		<property name="CustomIcon" value="terrainFiller"/><property name="CustomIconTint" value="69,0,117"/>
+		<property name="CreativeMode" value="Player"/>
+		<property name="BuffsWhenWalkedOn" value="quicksandtrigger1"/> <!-- Buff added to get the needed affect -->
+		<property class="UpgradeBlock">
+			<property name="ToBlock" value="trapSpikesIronDmg0"/>
+			<property name="Item" value="resourceForgedIron"/>
+			<property name="ItemCount" value="4"/>
+			<property name="UpgradeHitCount" value="4"/>
+		</property>
+		<property name="DowngradeBlock" value="trapSpikesWoodDmg1Spawner"/>
+	</block>
+
+	<!-- Player made Stage 1 with no blood -->
+	<!-- NOT_A_SHAPE -->
+	<block name="trapSpikesWoodDmg0SpawnerAlt">
+		<property name="Extends" value="trapSpikesWoodMasterSpawner"/>
+		<property name="CustomIcon" value="terrainFiller"/><property name="CustomIconTint" value="69,0,117"/>
+		<property name="CreativeMode" value="Player"/>
+		<property name="BuffsWhenWalkedOn" value="buffSpawnSpidersmjTrigger"/> <!-- Buff added to get the needed affect -->
+		<property name="Class" value="Mine" /> <!-- a mine destroyed by an *explosion* only has a 33% chance to detonate -->
+		<property name="Tags" value="Mine" />
+		<property name="ItemTypeIcon" value="explosion" />
+		<property name="Material" value="MLandMine" />
+		<property name="LODCullMin" value=".1" />
+		<property name="IsTerrainDecoration" value="true" />
+		<property name="OnlySimpleRotations" value="true" />
+		<property name="Collide" value="movement,melee,bullet,arrow,rocket" />
+		<property name="Stacknumber" value="500"><!--Attribute "value" replaced by: "AGF-A20VanillaPlus"--></property> <!-- STK explosives -->
+		<property name="MaxDamage" value="4" />
+		<property name="TriggerDelay" value="0.5" />
+		<property name="TriggerSound" value="landmine_trigger" />
+		<property name="Explosion.ParticleIndex" value="11" />
+		<property name="Explosion.RadiusBlocks" value="2" />
+		<property name="Explosion.RadiusEntities" value="4" />
+		<property name="Explosion.BlockDamage" value="10" />
+		<property name="Explosion.EntityDamage" value="36" /> <!-- damage for entities in the center of the explosion. -->
+		<property name="Explosion.DamageBonus.stone" value="0.1" />
+		<property name="Explosion.DamageBonus.metal" value="0.1" />
+		<property name="Explosion.DamageBonus.earth" value="0" />
+		<property name="Explosion.DamageBonus.wood" value="0" />
+		<property name="Explosion.DamageBonus.water" value="0" />
+		<property name="CanPickup" value="false" />
+		<property name="DowngradeBlock" value="trapSpikesWoodDmg1Spawner"/><!-- pointless atm because the mine effect triggering destroys the block, need to examine material strength to match block damage? -->
+	</block>
+
+	</append>
+
+
+</mjedit>
