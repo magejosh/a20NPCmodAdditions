@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="enZombies-NPCMod Compatibility Patchmod"/>
+		<Description value="adding WildGameForest group used by NPCMod back to spawning"/>
+		<Author value="magejosh"/>
+		<Version value="1.1" />
+	</ModInfo>
+</xml>

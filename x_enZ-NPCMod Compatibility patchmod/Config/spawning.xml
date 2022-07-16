@@ -1,0 +1,27 @@
+<mjedit>
+
+	<append xpath="/spawning/biome[@name='pine_forest']">
+		<spawn maxcount="2" respawndelay="0.5" time="Any" entitygroup="WildGameForest" tags="wilderness"/>
+		<spawn maxcount="2" respawndelay="1" time="Any" entitygroup="WildGameForest"/>
+	</append>
+	<append xpath="/spawning/biome[@name='snow']">
+		<spawn maxcount="2" respawndelay="0.5" time="Any" entitygroup="WildGameForest" tags="wilderness"/>
+		<spawn maxcount="2" respawndelay="1" time="Any" entitygroup="WildGameForest"/>
+	</append>
+	<append xpath="/spawning/biome[@name='desert']">
+		<spawn maxcount="2" respawndelay="0.5" time="Any" entitygroup="WildGameForest" tags="wilderness"/>
+		<spawn maxcount="2" respawndelay="1" time="Any" entitygroup="WildGameForest"/>
+	</append>
+	<append xpath="/spawning/biome[@name='burnt_forest']">
+		<spawn maxcount="2" respawndelay="0.5" time="Any" entitygroup="WildGameForest" tags="wilderness"/>
+		<spawn maxcount="2" respawndelay="1" time="Any" entitygroup="WildGameForest"/>
+	</append>
+	<append xpath="/spawning/biome[@name='wasteland']">
+		<spawn maxcount="2" respawndelay="0.5" time="Any" entitygroup="WildGameForest" tags="wilderness"/>
+		<spawn maxcount="2" respawndelay="1" time="Any" entitygroup="WildGameForest"/>
+	</append>
+
+</mjedit>
+
+
+
