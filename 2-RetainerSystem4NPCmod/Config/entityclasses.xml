@@ -1,9 +1,10 @@
 <mj>
 
 	<!-- this is a very hacky method that shouldn't be used as it's too broad for most uses with multiple NPC packs installed. It was useful however for testing purposes to add the new dialogue option to the Hired NPC dialogue. I would suggest for each NPC you add to try making your own unique dialogues and NPCIDs by either copypasta what i've done here and editing the id names and text contents to your needs or using sphereii's 7 days to dialogue tool. -->
-    <append xpath="//entity_class[starts-with(@name,'npc')]" >
+    <!-- had to comment this out as it's so broad it also breaks dialogue with the traders -->
+	<!-- <append xpath="//entity_class[starts-with(@name,'npc')]" >
 			<property name="NPCID" value="mjtest"/> 
-		</append>
+		</append> -->
 
 
 
