@@ -1,0 +1,201 @@
+<configs>
+
+	<append xpath="/items">		
+
+	<!-- ===	New NPC interaction items 	=== -->
+
+		<item name="itemNPCModmjHumanRetainerFee">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CreativeMode" value="Player" />
+			<property name="HoldType" value="9"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="Candrop" value="true"/>
+			<property name="CustomIcon" value="NPCHelp_icon"/>
+			<property class="Action0">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="0.1"/>
+				<property name="Range" value="60"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="quest_started"/>
+				<property name="Create_item" value="itemNPCModHelp"/>
+				<property name="Create_item_count" value="1"/>
+				<requirement name="CVarCompare" target="other" cvar="npcRehireTimerMaxDuration" operation="GT" value="0" />
+			</property>
+			<property class="Action1">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="0.1"/>
+				<property name="Range" value="60"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="quest_started"/>
+				<property name="Create_item" value="itemNPCModStop"/>
+				<property name="Create_item_count" value="1"/>
+			</property>
+			<effect_group name="itemNPCHelp" tiered="false">
+				<!-- <requirement name="CVarCompare" target="other" cvar="Leader" operation="Equals" value="@EntityID" > -->
+					<triggered_effect trigger="onSelfPrimaryActionEnd" target="other" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="37800"/>
+					<triggered_effect trigger="onSelfSecondaryActionEnd" target="other" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="37800"/>
+					<triggered_effect trigger="onSelfPrimaryActionStart" action="AddBuff" target="other" buff="buffNPCSpawnRehireTrigger"/>
+					<triggered_effect trigger="onSelfSecondaryActionStart" action="AddBuff" target="other" buff="buffNPCSpawnRehireTrigger"/>
+				<!-- </requirement> -->
+			</effect_group>
+		</item>
+
+		<item name="itemNPCModmjAnimalRetainerFeed">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CreativeMode" value="Player" />
+			<property name="HoldType" value="9"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="Candrop" value="true"/>
+			<property name="CustomIcon" value="NPCHelp_icon"/>
+			<property class="Action0">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="0.1"/>
+				<property name="Range" value="60"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="quest_started"/>
+				<property name="Create_item" value="itemNPCModHelp"/>
+				<property name="Create_item_count" value="1"/>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="0.1"/>
+				<property name="Range" value="60"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="quest_started"/>
+				<property name="Create_item" value="itemNPCModStop"/>
+				<property name="Create_item_count" value="1"/>
+			</property>
+			<effect_group name="itemNPCHelp" tiered="false">
+				<!-- <requirement name="CVarCompare" target="other" cvar="Leader" operation="Equals" value="@EntityID" > -->
+					<triggered_effect trigger="onSelfPrimaryActionEnd" target="other" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300"/>
+					<triggered_effect trigger="onSelfSecondaryActionEnd" target="other" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300"/>
+					<triggered_effect trigger="onSelfPrimaryActionStart" action="AddBuff" target="other" range="20" buff="buffNPCSpawnRehireTrigger"/>
+					<triggered_effect trigger="onSelfSecondaryActionStart" action="AddBuff" target="other" range="20" buff="buffNPCSpawnRehireTrigger"/>
+				<!-- </requirement> -->
+			</effect_group>
+		</item>
+
+		<item name="itemNPCModmjPetsRetainerFeed">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CreativeMode" value="Player" />
+			<property name="HoldType" value="9"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="Candrop" value="true"/>
+			<property name="CustomIcon" value="NPCHelp_icon"/>
+			<property class="Action0">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="0.1"/>
+				<property name="Range" value="60"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="quest_started"/>
+				<property name="Create_item" value="itemNPCModHelp"/>
+				<property name="Create_item_count" value="1"/>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="0.1"/>
+				<property name="Range" value="60"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="quest_started"/>
+				<property name="Create_item" value="itemNPCModStop"/>
+				<property name="Create_item_count" value="1"/>
+			</property>
+			<effect_group name="itemNPCHelp" tiered="false">
+				<!-- <requirement name="CVarCompare" target="other" cvar="Leader" operation="Equals" value="@EntityID" > -->
+					<triggered_effect trigger="onSelfPrimaryActionEnd" target="other" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300"/>
+					<triggered_effect trigger="onSelfSecondaryActionEnd" target="other" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300"/>
+					<triggered_effect trigger="onSelfPrimaryActionStart" action="AddBuff" target="other" buff="buffNPCSpawnRehireTrigger"/>
+					<triggered_effect trigger="onSelfSecondaryActionStart" action="AddBuff" target="other" buff="buffNPCSpawnRehireTrigger"/>
+				<!-- </requirement> -->
+			</effect_group>
+		</item>
+
+	<!-- this item is a template for how to make more complex commands as well as how to set them up as an item you can use to point at the NPC you want to target rather than through adding to the dialogue screen, this is useful for commands the player may want to use often that you may need to mitigate with recipe cost to offset abusing it.  -->
+
+		<item name="itemNPCModmjGoLooting">
+			<property name="HoldType" value="9"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="Candrop" value="true"/>
+			<property name="CustomIcon" value="NPCHelp_icon"/>
+			<property class="Action0">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="0.1"/>
+				<property name="Range" value="20"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="quest_started"/>
+				<property name="Create_item" value="itemNPCModHelp"/>
+				<property name="Create_item_count" value="1"/>
+				<requirement name="CVarCompare" target="other" cvar="npcRehireTimerMaxDuration" operation="GT" value="0" />
+			</property>
+			<property class="Action1">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="0.1"/>
+				<property name="Range" value="20"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="quest_started"/>
+				<property name="Create_item" value="itemNPCModStop"/>
+				<property name="Create_item_count" value="1"/>
+			</property>
+			<effect_group name="itemNPCHelp" tiered="false">
+
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="other" buff="buffOrderLoot,buffGatherResourcesXmj"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="other" buff="buffOrderLoot,buffGatherResourcesXmj"/>
+
+				<!-- <requirement name="CVarCompare" target="other" cvar="Leader" operation="Equals" value="@EntityID" > -->
+				<!-- <requirement name="CVarCompare" target="other" cvar="npcRehireTimerMaxDuration" operation="GT" value="0" /> -->
+					<triggered_effect trigger="onSelfPrimaryActionEnd" target="other" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="630"></triggered_effect>
+					<triggered_effect trigger="onSelfSecondaryActionEnd" target="other" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="630"><requirement name="CVarCompare" target="other" cvar="npcRehireTimerMaxDuration" operation="GT" value="0" /></triggered_effect>
+				
+			</effect_group>
+		</item>
+
+	<!-- the following item is only useable if you have Telric's Fishing Mod installed as well as SCore and NPC Core.  -->
+
+		<!-- <item name="itemNPCModmjGoVacation">
+			<property name="HoldType" value="9"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="Candrop" value="true"/>
+			<property name="CustomIcon" value="NPCHelp_icon"/>
+			<property class="Action0">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="0.1"/>
+				<property name="Range" value="20"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="quest_started"/>
+				<property name="Create_item" value="itemNPCModHelp"/>
+				<property name="Create_item_count" value="1"/>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="UseOther"/>
+				<property name="Delay" value="0.1"/>
+				<property name="Range" value="20"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="quest_started"/>
+				<property name="Create_item" value="itemNPCModStop"/>
+				<property name="Create_item_count" value="1"/>
+			</property>
+			<effect_group name="itemNPCGoVacation" tiered="false">
+
+
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="other" buff="buffOrderLoot,buffGoFishingXmj,buffGoFishingFXmj"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="other" buff="buffOrderLoot,buffGoFishingXmj,buffGoFishingFXmj"/>
+
+				
+					<triggered_effect trigger="onSelfPrimaryActionEnd" target="other" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300"><requirement name="CVarCompare" target="other" cvar="npcRehireTimerMaxDuration" operation="GT" value="0" /></triggered_effect>
+					<triggered_effect trigger="onSelfSecondaryActionEnd" target="other" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300"><requirement name="CVarCompare" target="other" cvar="npcRehireTimerMaxDuration" operation="GT" value="0" /></triggered_effect>
+			</effect_group>
+		</item> -->
+
+	</append>
+
+
+	
+</configs>

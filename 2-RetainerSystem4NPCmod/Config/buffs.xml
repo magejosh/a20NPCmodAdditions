@@ -1,0 +1,425 @@
+<mjedit>
+
+
+
+	<append xpath="/buffs">
+
+		<buff name="buffNoNPCzoneTrigger" hidden="true">
+			<stack_type value="replace" />
+			<duration value="2 "/>
+
+			<effect_group name="Start">
+				<requirement name="!HasBuff" buff="buffNoNPCzoneMaster">
+					<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffNoNPCzoneMaster"/>
+					<triggered_effect trigger="onSelfBuffStack" action="AddBuff" target="self" buff="buffNoNPCzoneMaster"/>
+					<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffNoNPCzoneMaster"/>
+				</requirement>
+			</effect_group>
+
+        </buff>    
+
+
+		<buff name="buffNoNPCzoneFX" hidden="true">
+			<stack_type value="replace" />
+			<duration value="0"/>
+
+			<effect_group name="Start">
+				<triggered_effect trigger="onSelfBuffStart" action="HideNPCSDX, SCore" hide="true" />
+			</effect_group>
+
+			<effect_group name="End">
+				<triggered_effect trigger="onSelfBuffRemove" action="RandomLootSDX, SCore" lootgroup="groupBuriedLootStashTreasure" />
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="spLootExperience" operation="add" value="0.1" />
+
+				<triggered_effect trigger="onSelfBuffRemove" action="HideNPCSDX, SCore" hide="false" />
+			</effect_group>
+        </buff>    
+
+
+		<buff name="buffNoNPCzoneCleanUp" hidden="true">
+			<stack_type value="replace" />
+			<duration value="22"/>
+
+			<effect_group name="End">
+                <triggered_effect trigger="onSelfBuffFinish" action="RemoveBuff" buff="buffNoNPCzoneMaster"/>
+                <triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buffNoNPCzoneMaster"/>
+			</effect_group>
+        </buff>    
+
+
+		<buff name="buffNoNPCzoneMaster" hidden="true">
+			<stack_type value="replace" />
+			<duration value="0 "/>
+            <update_rate value="10"/>
+
+			<effect_group name="Main">
+					<requirement name="!EntityTagCompare" target="other" tags="vehicle,player,turret,drone,zombie,bandit,hostile">
+						<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="selfAOE" range="25" buff="buffNoNPCzoneFX"/>
+						<triggered_effect trigger="onSelfBuffStack" action="AddBuff" target="selfAOE" range="25" buff="buffNoNPCzoneFX"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="selfAOE" range="25" buff="buffNoNPCzoneFX"/>
+						<triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" target="selfAOE" range="3000" buff="buffNoNPCzoneFX"/>
+					</requirement>
+ 			</effect_group>
+			<effect_group name="Backup Removal">
+                <triggered_effect trigger="onSelfDied" action="AddBuff" target="self" buff="buffNoNPCzoneCleanUp"/>
+			</effect_group>
+        </buff>    
+
+		<buff name="buffGatherXtraResourcesFXmj" hidden="true">
+			<stack_type value="ignore" />
+			<duration value="3 "/>
+
+			<effect_group name="Loot One">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="17">
+					<triggered_effect trigger="onSelfBuffRemove" action="RandomLootSDX, SCore" lootgroup="groupCupboard" />
+					<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="spLootExperience" operation="add" value="0.06" />
+				</requirement>
+
+			</effect_group>
+			<effect_group name="Loot Two">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="42">
+					<triggered_effect trigger="onSelfBuffRemove" action="RandomLootSDX, SCore" lootgroup="brassResource" />
+					<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="spLootExperience" operation="add" value="0.04" />
+				</requirement>
+
+			</effect_group>
+        </buff>    
+
+		<buff name="buffGatherResourcesXmj" hidden="true">
+			<stack_type value="ignore" />
+			<duration value="600 "/>
+            <update_rate value="63"/>
+
+			<effect_group name="Start">
+				<triggered_effect trigger="onSelfBuffStart" action="HideNPCSDX, SCore" hide="true" />
+			</effect_group>
+
+			<effect_group name="Update">
+ 				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="42">
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffGatherXtraResourcesFXmj"/>
+				</requirement>
+					<requirement name="CVarCompare" target="other" cvar="npcRehireTimerMaxDuration" operation="GT" value="0" >
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="630"/>
+					</requirement>
+			</effect_group>
+			<effect_group name="End">
+				<triggered_effect trigger="onSelfBuffRemove" action="RandomLootSDX, SCore" lootgroup="groupBuriedLootStashTreasure" />
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="spLootExperience" operation="add" value="0.1" />
+				<triggered_effect trigger="onSelfBuffRemove" action="HideNPCSDX, SCore" hide="false" />
+                <triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffOrderFollow"/>
+				</effect_group>
+
+        </buff>    
+
+	<!-- the following two go fishing buffs are only useable if using Telric's Fishing Mod, but are provided here as an example of how to utilize this template to make more complex commands for your NPCs using other mods. For these i only added in the raw fish you can catch from the fishing mod to a custom lootgroup used to determine success of the fishing trip taken by the NPC  -->
+		<!-- <buff name="buffGoFishingXFXmj" hidden="true">
+			<stack_type value="ignore" />
+			<duration value="1360 "/>
+
+			<effect_group name="Start">
+                <triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffGatherXtraResourcesFXmj"/>
+			</effect_group>
+			<effect_group name="End">
+				<triggered_effect trigger="onSelfBuffRemove" action="RandomLootSDX, SCore" lootgroup="groupCupboard" />
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="spLootExperience" operation="add" value="0.11" />
+			</effect_group>
+        </buff>    
+
+		<buff name="buffGoFishingXmj" hidden="true">
+			<stack_type value="ignore" />
+			<duration value="13600 "/>
+            <update_rate value="4900"/>
+
+			<effect_group name="Start">
+				<triggered_effect trigger="onSelfBuffStart" action="HideNPCSDX, SCore" hide="true" />
+			</effect_group>
+
+			<effect_group name="Update">
+ 				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="42">
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffGoFishingFXmj"/>
+				</requirement>
+				<requirement name="CVarCompare" target="other" cvar="npcRehireTimerMaxDuration" operation="GT" value="0" >
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300"/>
+				</requirement>
+			</effect_group>
+
+			<effect_group name="End">
+				<triggered_effect trigger="onSelfBuffRemove" action="RandomLootSDX, SCore" lootgroup="groupRandomFishTripNPC" />
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="spLootExperience" operation="add" value="0.17" />
+
+				<triggered_effect trigger="onSelfBuffRemove" action="HideNPCSDX, SCore" hide="false" />
+                <triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffOrderFollow"/>
+			</effect_group>
+        </buff> -->    
+
+	<!-- this begins the rehire specific buffs needed to make the system work as is. the only thing that doesn't work right now is showing you how long til they quit working for you because i can't figure out how to make them tell you what their cvar says in localization of the dialogue screen because it reads from the player instead. Maybe if I had a way to have them transmit a set cvar out over a small AOE with their timer cvar then whatever the player set one was would be the last transmitted by the closest NPC. either way, for now it's not working as it's structured here to display the timer to the player but each NPC has a unique timer with this system with no noticeable fps dip from it's use in my testing. Feedback and ideas/suggestions welcomed and appreciated. -->
+		<buff name="IsHealingX2"> 
+            <stack_type value="ignore"/>
+            <duration value="3"/>
+            <update_rate value="1"/>
+             <effect_group>
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="other" cvar="healAbrasionMult" operation="set" value="3"/> 
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="other" cvar="medicalRegHealthAmount" operation="add" value="63"/> 
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="other" cvar="medRegHealthIncSpeed" operation="set" value="4">
+                    <requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="0"/>
+				</triggered_effect>
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="other" cvar="medRegHealthIncSpeed" operation="set" value="5">
+                    <requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="1"/>
+				</triggered_effect>
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="other" cvar="medRegHealthIncSpeed" operation="set" value="5.6">
+                    <requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="2"/>
+				</triggered_effect>
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="other" cvar="medRegHealthIncSpeed" operation="set" value="6.3">
+                    <requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="3"/>
+				</triggered_effect>
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" target="other" cvar="medRegHealthIncSpeed" operation="set" value="7.2">
+                    <requirement name="ProgressionLevel" progression_name="perkPhysician" operation="Equals" value="4"/>
+				</triggered_effect>
+                <triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="other" buff="buffProcessConsumables"/>
+                <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="other" buff="buffInjuryBleeding"/>
+			 </effect_group>	
+			 <effect_group>	
+                <triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="other" buff="twitch_regen">
+					<requirement name="StatComparePercCurrentToMax" stat="health" operation="LTE" value=".81"/>
+						<requirement name="EntityTagCompare" target="other" tags="vehicle,player,turret,drone"/>
+							<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="11"/>
+                </triggered_effect>
+                <triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="other" buff="twitch_regen">
+					<requirement name="StatComparePercCurrentToMax" stat="health" operation="LTE" value=".81"/>
+						<requirement name="EntityTagCompare" target="other" tags="vehicle,player,turret,drone"/>
+							<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="11"/>
+                </triggered_effect>
+				<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="GTE" value="8100">
+					<requirement name="StatComparePercCurrentToMax" stat="health" operation="GTE" value=".81">
+						<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" target="selfAOE" range="13" buff="twitch_regen">
+							<requirement name="EntityTagCompare" target="other" tags="vehicle,player,turret,drone"/>
+								<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="11"/>
+						</triggered_effect>
+					</requirement>
+				</requirement>
+                <triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="twitch_regen">
+					<requirement name="StatComparePercCurrentToMax" stat="health" operation="LTE" value=".81"/>
+                </triggered_effect>
+            </effect_group>
+            <effect_group name="IsHealing">
+                <triggered_effect trigger="onSelfBuffStart" action="AnimatorFireTrigger" property="Heal" />
+            </effect_group>
+        </buff>    
+
+	<!-- the commented out lines here in the 3 effect groups were intended to keep it from triggering if you tried to use it on an NPC you hadn't hired to somehow trick it into thinking it's hired for cheaper than HireCost. When trying to make the dialogues display the cvar i thought they were preventing it from setting the cvar, until i realized the dialogue reads the cvar of the player rather than the NPC.  -->
+		<buff name="buffNPCSpawnRehireTrigger" name_key="buffScreamerCurseTriggerName" description_key="buffScreamerCurseTriggerDesc" tooltip_key="buffScreamerCurseTriggerTooltip" icon="shield" hidden="false" remove_on_death="false" icon_color="219,124,29">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<update_rate value="30"/>
+			<effect_group name="Human NPC Rehire Trigger">
+				<!-- <requirement name="CVarCompare" cvar="Leader" operation="NotEquals" value="0"> -->
+				<!-- <requirement type="HiredSDX, SCore" requirementtype="Hide" value="not"/> -->
+					<requirement name="EntityTagCompare" target="self" tags="npc">
+						<requirement name="!EntityTagCompare" target="self" tags="pets,animal,zombie,bandit">
+							<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffNPChumanRehireTrigger">
+								<requirement name="!HasBuff" buff="buffNPChumanRehireTimer"/>
+							</triggered_effect>
+							<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffNPChumanRehireTrigger">
+								<requirement name="!HasBuff" buff="buffNPChumanRehireTimer"/>
+							</triggered_effect>
+							<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300">
+								<requirement name="HasBuff" buff="buffNPChumanRehireTimer"/>
+							</triggered_effect>
+						</requirement>
+					</requirement>
+				<!-- </requirement> -->
+			</effect_group>
+			<effect_group name="Animal NPC Rehire Trigger">
+				<!-- <requirement name="CVarCompare" cvar="Leader" operation="NotEquals" value="0"> -->
+				<!-- <requirement type="HiredSDX, SCore" requirementtype="Hide" value="not"/> -->
+					<requirement name="EntityTagCompare" target="self" tags="npc,animal">
+						<requirement name="EntityTagCompare" target="self" tags="pets,zombie,bandit" invert_tag_check="true">
+							<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffNPCanimalRehireTrigger">
+								<requirement name="!HasBuff" buff="buffNPCanimalRehireTimer"/>
+							</triggered_effect>
+							<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffNPCanimalRehireTrigger">
+								<requirement name="!HasBuff" buff="buffNPCanimalRehireTimer"/>
+							</triggered_effect>
+							<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300">
+								<requirement name="HasBuff" buff="buffNPCanimalRehireTimer"/>
+							</triggered_effect>
+						</requirement>
+					</requirement>
+				<!-- </requirement> -->
+			</effect_group>
+			<effect_group name="Mechs NPC Rehire Trigger">
+				<!-- <requirement name="CVarCompare" cvar="Leader" operation="NotEquals" value="0"> -->
+				<!-- <requirement type="HiredSDX, SCore" requirementtype="Hide" value="not"/> -->
+					<requirement name="EntityTagCompare" target="self" tags="npc,mech">
+						<requirement name="EntityTagCompare" target="self" tags="animal,zombie,bandit" invert_tag_check="true">
+							<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffNPCmechsRehireTrigger">
+								<requirement name="!HasBuff" buff="buffNPCmechsRehireTrigger"/>
+							</triggered_effect>
+							<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffNPCmechsRehireTrigger">
+								<requirement name="!HasBuff" buff="buffNPCmechsRehireTrigger"/>
+							</triggered_effect>
+							<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300">
+								<requirement name="HasBuff" buff="buffNPCmechsRehireTrigger"/>
+							</triggered_effect>
+						</requirement>
+					</requirement>
+				<!-- </requirement> -->
+			</effect_group>
+		</buff>
+
+
+		<buff name="buffNPChumanRehireTrigger" name_key="buffScreamerCurseTriggerName" description_key="buffScreamerCurseTriggerDesc" tooltip_key="buffScreamerCurseTriggerTooltip" icon="shield" hidden="false" remove_on_death="false" icon_color="219,124,29">
+			<stack_type value="ignore"/>
+			<duration value="2"/>
+			<update_rate value=".75"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300">
+					<requirement name="HasBuff" buff="buffNPChumanRehireTimer"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffNPCSpawnRehireTrigger">
+					<requirement name="HasBuff" buff="buffNPChumanRehireTimer"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffNPChumanRehireTimer">
+					<requirement name="!HasBuff" buff="buffNPChumanRehireTimer"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+
+
+		<buff name="buffNPChumanRehireTimer" name_key="buffScreamerCurseTriggerName" description_key="buffScreamerCurseTriggerDesc" tooltip_key="buffScreamerCurseTriggerTooltip" icon="shield" hidden="false" remove_on_death="false" icon_color="219,124,29">
+			<stack_type value="ignore"/>
+			<duration value="75,600"/>
+			<update_rate value="1"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="set" value="37800">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="LT" value="37800"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="set" value="151200">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="GTE" value="151200"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" target="self" action="AddBuff" buff="IsHealingX2">
+					<requirement name="!HasBuff" buff="IsHealingX2"/>
+					<requirement name="StatComparePercCurrentToMax" stat="health" operation="LTE" value=".81"/>
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="GTE" value="6300"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffOrderDismiss">
+					<requirement name="!HasBuff" buff="IsHealingX2"/>
+					<requirement name="StatComparePercCurrentToMax" stat="health" operation="LTE" value=".18"/>
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="LT" value="8100"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffOrderDismiss">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="LTE" value="13"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="GT" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" buff="buffNPCSpawnRehireTrigger"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="set" value="0"/>
+			</effect_group>
+		</buff>
+
+
+		<buff name="buffNPCanimalRehireTrigger" name_key="buffScreamerCurseTriggerName" description_key="buffScreamerCurseTriggerDesc" tooltip_key="buffScreamerCurseTriggerTooltip" icon="shield" hidden="false" remove_on_death="false" icon_color="219,124,29">
+			<stack_type value="ignore"/>
+			<duration value="2"/>
+			<update_rate value=".75"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300">
+					<requirement name="HasBuff" buff="buffNPCanimalRehireTimer"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffNPCSpawnRehireTrigger">
+					<requirement name="HasBuff" buff="buffNPCanimalRehireTimer"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffNPCanimalRehireTimer">
+					<requirement name="!HasBuff" buff="buffNPCanimalRehireTimer"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+
+
+		<buff name="buffNPCanimalRehireTimer" name_key="buffScreamerCurseTriggerName" description_key="buffScreamerCurseTriggerDesc" tooltip_key="buffScreamerCurseTriggerTooltip" icon="shield" hidden="false" remove_on_death="false" icon_color="219,124,29">
+			<stack_type value="ignore"/>
+			<duration value="18900"/>
+			<update_rate value="1"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="set" value="6300">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="LT" value="6300"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="set" value="18900">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="GTE" value="18900"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" target="self" action="AddBuff" buff="IsHealingX2">
+					<requirement name="!HasBuff" buff="IsHealingX2"/>
+					<requirement name="StatComparePercCurrentToMax" stat="health" operation="LTE" value=".81"/>
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="GTE" value="1420"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffOrderDismiss">
+					<requirement name="!HasBuff" buff="IsHealingX2"/>
+					<requirement name="StatComparePercCurrentToMax" stat="health" operation="LTE" value=".34"/>
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="LT" value="1420"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffOrderDismiss">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="LTE" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="GT" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" buff="buffNPCSpawnRehireTrigger"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="set" value="0"/>
+			</effect_group>
+		</buff>
+
+
+		<buff name="buffNPCmechsRehireTrigger" name_key="buffScreamerCurseTriggerName" description_key="buffScreamerCurseTriggerDesc" tooltip_key="buffScreamerCurseTriggerTooltip" icon="shield" hidden="false" remove_on_death="false" icon_color="219,124,29">
+			<stack_type value="ignore"/>
+			<duration value="2"/>
+			<update_rate value=".75"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="6300">
+					<requirement name="HasBuff" buff="buffNPCmechsRehireTimer"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffNPCSpawnRehireTrigger">
+					<requirement name="HasBuff" buff="buffNPCmechsRehireTimer"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffNPCmechsRehireTimer">
+					<requirement name="!HasBuff" buff="buffNPCmechsRehireTimer"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+
+
+		<buff name="buffNPCmechsRehireTimer" name_key="buffScreamerCurseTriggerName" description_key="buffScreamerCurseTriggerDesc" tooltip_key="buffScreamerCurseTriggerTooltip" icon="shield" hidden="false" remove_on_death="false" icon_color="219,124,29">
+			<stack_type value="ignore"/>
+			<duration value="18900"/>
+			<update_rate value="1"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" buff="buffNPCSpawnRehireTrigger"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="set" value="6300">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="LT" value="6300"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="set" value="18900">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="GTE" value="18900"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" target="self" action="AddBuff" buff="IsHealingX2">
+					<requirement name="!HasBuff" buff="IsHealingX2"/>
+					<requirement name="StatComparePercCurrentToMax" stat="health" operation="LTE" value=".81"/>
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="GTE" value="1420"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffOrderDismiss">
+					<requirement name="!HasBuff" buff="IsHealingX2"/>
+					<requirement name="StatComparePercCurrentToMax" stat="health" operation="LTE" value=".34"/>
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="LT" value="1420"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffOrderDismiss">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="LTE" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="npcRehireTimerMaxDuration" operation="add" value="-1">
+					<requirement name="CVarCompare" cvar="npcRehireTimerMaxDuration" operation="GT" value="0"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+
+
+	</append>
+</mjedit>

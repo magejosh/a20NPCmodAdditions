@@ -1,0 +1,27 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english,French,German,Klingon,Spanish,Polish
+
+itemNPCModmjHumanRetainerFee,items,Item,,,"NPC Retainer Fee [db7c1d]Humans",,,,,
+itemNPCModmjHumanRetainerFeeDesc,items,Item,,,"You have bundled up the NPC Retainer Fee [db7c1d]Humans[ffffff]\nPlace it on your hotbar and look at the Hired Human NPC then right or left click to use the bundle to pay the NPC.",,,,,
+itemNPCModmjHumanRetainerFeeLongDesc,items,Item,,,"You have bundled up the NPC Retainer Fee [db7c1d]Humans[ffffff]\nPlace it on your hotbar and look at the Hired Human NPC then right or left click to use the bundle to pay the NPC.",,,,,
+
+itemNPCModmjAnimalRetainerFeed,items,Item,,,"NPC Retainer Feed [db7c1d]Animals",,,,,
+itemNPCModmjAnimalRetainerFeedDesc,items,Item,,,"You have bundled up the NPC Retainer Feed [db7c1d]Animal[ffffff]\nPlace it on your hotbar and look at the Hired Animal NPC then right or left click to use the bundle to feed the NPC.",,,,,
+itemNPCModmjAnimalRetainerFeedLongDesc,items,Item,,,"You have bundled up the NPC Retainer Feed [db7c1d]Animal[ffffff]\nPlace it on your hotbar and look at the Hired Animal NPC then right or left click to use the bundle to feed the NPC.",,,,,
+
+itemNPCModmjPetsRetainerFeed,items,Item,,,"NPC Retainer Fee [db7c1d]Mechs",,,,,
+itemNPCModmjPetsRetainerFeedDesc,items,Item,,,"You have bundled up the NPC Retainer [db7c1d]Mechs[ffffff] Kit.\nPlace it on your hotbar and look at the Hired Mech NPC then right or left click to use the bundle to pay the NPC.",,,,,
+itemNPCModmjPetsRetainerFeedLongDesc,items,Item,,,"You have bundled up the NPC Retainer [db7c1d]Mechs[ffffff] Kit.\nPlace it on your hotbar and look at the Hired Mech NPC then right or left click to use the bundle to pay the NPC.",,,,,
+
+itemNPCModmjGoLooting,items,Item,,,"NPC Hireling Command: [db7c1d]Go Looting",,,,,
+itemNPCModmjGoLootingDesc,items,Item,,,"You have bundled up the NPC Hireling Command [db7c1d]Go Looting[ffffff] Kit.\nPlace it on your hotbar and look at the Hired NPC then right or left click to use the bundle to send the NPC out to scout the area for useful loot. They will then disappear for a little over 10 minutes and then reappear with the follow you order active. The more they are sent out to do this, the move experienced and effective they get at it.",,,,,
+itemNPCModmjGoLootingLongDesc,items,Item,,,"You have bundled up the NPC Hireling Command [db7c1d]Go Looting[ffffff] Kit.\nPlace it on your hotbar and look at the Hired NPC then right or left click to use the bundle to send the NPC out to scout the area for useful loot. They will then disappear for a little over 10 minutes and then reappear with the follow you order active. The more they are sent out to do this, the move experienced and effective they get at it.",,,,,
+
+itemNPCModmjGoVacation,items,Item,,,"NPC Hireling Command: Paid Vacation [db7c1d]Go Fishing Trip",,,,,
+itemNPCModmjGoVacationDesc,items,Item,,,"You have bundled up the NPC Paid Vacation[db7c1d]Go Fishing Trip[ffffff].\nPlace it on your hotbar and look at the Hired NPC then right or left click to use the bundle to send the NPC on a weekend vacation where they may return with some spare fish or other finds.",,,,,
+itemNPCModmjGoVacationLongDesc,items,Item,,,"You have bundled up the NPC Free Vacation[db7c1d]Go Fishing Trip.\nPlace it on your hotbar and look at the Hired NPC then right or left click to use the bundle to send the NPC on a weekend vacation where they may return with some spare fish or other finds.",,,,,
+
+"responseID_659229276",,,,,"How long until you quit working for me?",,,,,
+"statement_852588277",,,,,"If you don't pay me before the [DF9B00]Timer Runs Out {cvar(npcRehireTimerMaxDuration)}[ffffff] then I'm out of here.",,,,,
+"response_1831753748",,,,,"Okay I'll keep that in mind.\nWho tracks their time in seconds anyways? Now I need a calculator.",,,,,
+
+

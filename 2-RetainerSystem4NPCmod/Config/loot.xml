@@ -1,0 +1,35 @@
+<configs>
+
+	<!-- this lootgroup is only useable with Telric's Fishing Mod also installed. -->
+	<!-- <append xpath="/lootcontainers">
+
+
+		<lootgroup name="groupRandomFishTripNPC">
+			<item name="resourceBluegilFish" loot_prob_template="veryLow"/>
+			<item name="resourceCatfish" count="1,2" loot_prob_template="medHigh"/>
+			<item name="resourceCrab" count="1,2"/>
+			<item name="resourceCrappie" count="1,3" loot_prob_template="medHigh"/>
+			<item name="resourceGrouper" count="1,2"/>
+			<item name="resourceLargeMouthBass" count="0,1" loot_prob_template="medHigh"/>
+			<item name="resourceMackerel"/>
+			<item name="resourceOctopus" loot_prob_template="veryLow"/>
+			<item name="resourceRedSnapper"/>
+			<item name="resourceShad" loot_prob_template="medHigh"/>
+			<item name="resourceShrimp" count="1,2"/>
+			<item name="resourceStripedBass" count="0,2" loot_prob_template="medHigh"/>
+			<item name="resourceTrout" count="1,2"/>
+			<item name="resourceTuna" loot_prob_template="veryLow"/>
+			<item name="resourceFishingCoin" loot_prob_template="veryLow"/>
+			<item name="resourceSeaweed" count="1,3" loot_prob_template="medHigh"/>
+			<item name="resourceOldBoot" loot_prob_template="medHigh"/>
+			<item name="drinkJarBeer" count="1,2" loot_prob_template="medHigh"/>
+			<item name="drinkCanMegaCrush" loot_prob_template="veryLow"/>
+			<item name="resourceIronHook"/>
+			<item name="resourceFishingSpool"/>
+			<item name="resourceBaitWorm" count="1,6" loot_prob_template="guaranteed"/>
+			<item name="resourceBaitGrub" count="1,2"/>
+			<item name="resourceBaitDragonfly"/>
+		</lootgroup>
+	</append> -->
+
+</configs>

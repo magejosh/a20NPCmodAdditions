@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xml>
+  <ModInfo>
+    <Name value="2-RetainerSystem4NPCmod" />
+    <Description value="Adds a retainer fee system to keep NPCs hired longer than a week. Currently not working to show length of time to quitting working for you." />
+    <Author value="magejosh" />
+    <Version value="1" />
+    <Website value="https://github.com/magejosh/a20NPCmodAdditions" />
+  </ModInfo>
+</xml>

@@ -1,0 +1,45 @@
+<configs>
+	<append xpath="/recipes" >	
+
+		<recipe name="itemNPCModmjGoLooting" count="1" craft_time="63">
+			<ingredient name="resourceScrapPolymers" count="2"/>
+			<ingredient name="resourcePaper" count="3"/>
+			<ingredient name="oldCash" count="25"/>
+		</recipe>
+
+		<recipe name="itemNPCModmjGoLooting" count="1" craft_time="63">
+			<ingredient name="resourceCloth" count="5"/>
+			<ingredient name="casinoCoin" count="25"/>
+		</recipe>
+
+		<!-- <recipe name="itemNPCModmjGoVacation" count="1" craft_time="63">
+			<ingredient name="Padded_Backpack" count="1"/>
+			<ingredient name="DecorationPackOutdoorsMaster" count="1"/>
+			<ingredient name="casinoCoin" count="250"/>
+		</recipe> -->
+
+		<recipe name="itemNPCModmjHumanRetainerFee" count="1" craft_time="63">
+			<ingredient name="resourceCloth" count="5"/>
+			<ingredient name="casinoCoin" count="500"/>
+		</recipe>
+
+		<recipe name="itemNPCModmjAnimalRetainerFeed" count="1" craft_time="63">
+			<ingredient name="foodRawMeat" count="25"/>
+			<ingredient name="resourceAnimalFat" count="3"/>
+			<ingredient name="resourceBone" count="2"/>
+		</recipe>
+
+		<recipe name="itemNPCModmjPetsRetainerFeed" count="1" craft_time="63" tags="perkAdvancedEngineering">
+			<ingredient name="resourceElectricParts" count="5"/>
+			<ingredient name="resourceMechanicalParts" count="4"/>
+			<ingredient name="carBattery" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,1,2,3,4,5" value="3,2,2,1,0,-1" tags="carBattery"/>
+				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,1,2,3,4,5" value="3,2,2,1,1,-0.5" tags="resourceMechanicalParts"/>
+				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,1,2,3,4,5" value="5,3,2,2,1,0" tags="resourceElectricParts"/>
+			</effect_group>
+		</recipe>
+
+	</append>
+
+</configs>
