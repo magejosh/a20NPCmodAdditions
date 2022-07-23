@@ -1,0 +1,13 @@
+<configs>
+	<append xpath="/lootcontainers">
+  <!-- the dog needs some incentive to hunt for it since looting it's schematic is the only means of getting one, as such it's cargo capacity is increased. mj -->
+    <lootcontainer id="230" name="guppyRobotDog" count="0" size="9,13" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="qualBaseTemplate">
+    </lootcontainer> 
+
+    </append>
+
+    <insertAfter xpath="/lootcontainers/lootgroup[@name='schematicsModsAndGeneralT1']/item[@name='drugHerbalAntibioticsSchematic']" >
+      <item name="guppyRobotDogSchematic"/>
+    </insertAfter>
+    
+</configs>

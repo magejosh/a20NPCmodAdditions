@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="1-Guppycur's_Robot_Dog" />
+		<Description value="Adds a robotic canine companion, updated to a20 NPCmod pack by magejosh" />
+		<Author value="Guppycur,magejosh"/>
+		<Version value="1.0.0" />
+		<Website value="" />
+	</ModInfo>
+</xml>
